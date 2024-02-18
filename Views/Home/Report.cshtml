@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Задачи сотрудника";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+    <h3>Отчет: Просроченные задачи</h3>
+    <br />  
+    <button>@Html.ActionLink("Печать", "Reportred", "Home")</button>
+    <br />
+    <table border="1" style="">
+        <thead color="red">
+            <tr>
+
+                <td>Сотрудник</td>
+                <td>Наименование</td>
+                <td>Дата старта</td>
+                <td>Дата завершения</td>
+                <td>% выполнения</td>
+                <td>Просрочено дней</td>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @*      <a href="Workers/Index?id=@list.Id&fio=@list.Fio&work=@list.Work"> *@
+
+            @foreach (var list in ViewBag.listReport)
+            {
+                <tr style="text-decoration: none; color:black">
+                    <td hidden>@list.Id</td>
+                    <td>@list.Worker</td>
+                    <td>@list.Name</td>
+                    <td>@list.Date_Start</td>
+                    <td>@list.Date_End</td>
+                    <td>@list.Ready</td>
+                    <td>@list.Days дней</td>
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+    @* <button type="submit" value="" onclick="location.href='/Home'">Назад</button> *@
+</body>
+</html>

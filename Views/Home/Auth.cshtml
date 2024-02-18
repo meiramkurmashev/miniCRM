@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Вход";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+    <h3>
+        Добро пожаловать,  @foreach (var list in ViewBag.listUsers)
+        {
+            @list.Fio
+
+        } !
+    </h3>
+</body>
+</html>

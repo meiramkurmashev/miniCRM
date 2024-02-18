@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Workers";
+}
+<script>
+        
+    function tableSearch() {
+        var phrase = document.getElementById('search-text');
+        var table = document.getElementById('info-table');
+        var regPhrase = new RegExp(phrase.value, 'i');
+        var flag = false;
+        for (var i = 1; i < table.rows.length; i++) {
+            flag = false;
+            for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
+                flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
+                if (flag) break;
+            }
+            if (flag) {
+                table.rows[i].style.display = "";
+            } else {
+                table.rows[i].style.display = "none";
+            }
+
+        }
+    }
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+
+ 
+</head>
+<body>
+
+    <h3>Сотрудники</h3>
+
+    <br />
+    <button>@Html.ActionLink("Добавить", "Add", "Home")</button>
+    <button>@Html.ActionLink("Редактировать", "Edit", "Home")</button>
+    <button>@Html.ActionLink("Удалить", "Delete", "Home")</button>
+    <button>@Html.ActionLink("Задачи", "Index", "Tasks")</button>
+    <button>@Html.ActionLink("Отчет", "Report", "Home")</button>
+    <input  type="text" placeholder="Поиск по ФИО" id="search-text" onkeyup="tableSearch()" />
+    <br />
+    <table  id="info-table"  border="1" style="">
+        <thead bgcolor="#c0c0c0" color="red">
+            <tr>
+               
+                <td onclick="sortTable(0)">ФИО</td>
+                <td onclick="sortTable(1)">Должность</td>
+                <td onclick="sortTable(1)">Задачи</td>
+                <td onclick="sortTable(1)">Выполнено</td>
+
+            </tr>
+        </thead>
+        <tbody>
+       @*      <a href="Workers/Index?id=@list.Id&fio=@list.Fio&work=@list.Work"> *@
+
+            @foreach (var list in ViewBag.listWorkers)
+            {
+                <tr style="text-decoration: none; color:black">
+                    <td hidden>@list.Id</td>
+                    <td>@list.Fio</td>
+                    <td>@list.Work</td>
+                    <td>@list.Tasks</td>
+                    <td>@list.Ready%</td>
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+    @* <button type="submit" value="" onclick="location.href='/Home'">Назад</button> *@
+</body>
+</html>

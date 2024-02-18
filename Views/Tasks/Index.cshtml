@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Workers";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+    <h3>Выберите сотрудника</h3>
+
+    
+    <br />
+    <table border="1" style="">
+        <thead color="red">
+            <tr>
+
+                <td onclick="sortTable(0)">ФИО</td>
+                <td onclick="sortTable(1)">Должность</td>
+                <td onclick="sortTable(1)">Задачи</td>
+                <td onclick="sortTable(1)">Выполнено</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @*      <a href="Workers/Index?id=@list.Id&fio=@list.Fio&work=@list.Work"> *@
+
+            @foreach (var list in ViewBag.listWorkers)
+            {
+                <tr style="text-decoration: none; color:black">
+                    <td hidden>@list.Id</td>
+                    <td><a href="Tasks/Worker?id=@list.Id&fio=@list.Fio&work=@list.Work">@list.Fio</a></td>
+                    <td>@list.Work</td>
+                    <td>@list.Tasks</td>
+                    <td>@list.Ready%</td>
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+    @* <button type="submit" value="" onclick="location.href='/Home'">Назад</button> *@
+</body>
+</html>

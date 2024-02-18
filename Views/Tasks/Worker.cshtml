@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Задачи сотрудника";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+    <h3>Задачи сотрудника: @ViewBag.Fio</h3>
+
+
+    <br />
+    <button><a href="Add?id=@ViewBag.Id&fio=@ViewBag.Fio&work=@ViewBag.Work">Добавить</a></button>
+    <button><a href="EditProcess?id=@ViewBag.Id&fio=@ViewBag.Fio&work=@ViewBag.Work">Редактировать</a></button>
+    <button><a href="Delete?id=@ViewBag.Id&fio=@ViewBag.Fio&work=@ViewBag.Work">Удалить</a></button>
+    <br />
+    <table border="1" style="">
+        <thead color="red">
+            <tr>
+
+                
+                <td>Наименование</td>
+                <td>Дата старта</td>
+                <td>Дата завершения</td>
+                <td>Процент выполнения</td>
+                
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            @*      <a href="Workers/Index?id=@list.Id&fio=@list.Fio&work=@list.Work"> *@
+
+            @foreach (var list in ViewBag.listTasks)
+            {
+                <tr style="text-decoration: none; color:black">
+                    <td hidden>@list.Id</td>
+                    
+                    <td>@list.Name</td>
+                    <td>@list.Date_Start</td>
+                    <td>@list.Date_End</td>
+                    <td>@list.Ready%</td>
+                    
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+    @* <button type="submit" value="" onclick="location.href='/Home'">Назад</button> *@
+</body>
+</html>

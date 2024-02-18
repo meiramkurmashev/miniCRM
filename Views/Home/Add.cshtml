@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Workers";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+<form method="post" action="/Home/AddComplete">
+    @{
+        //  Layout = null;//для представления не используется мастер-страница
+    }
+    <h3>Добавить сотрудника</h3>
+    <table>
+            <thead>
+                <tr>
+
+
+                    <td>ФИО</td>
+
+                    <td>Должность</td>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    
+                    <td><input required name="fio" /></td>
+                    <td><input required name="work" /></td>
+                </tr>
+
+            </tbody>
+    </table>
+    @{
+
+    }
+    <button type="submit" value="">Добавить</button>
+    <button type="button" onclick="javascript:history.go(-1);">Назад</button>
+    </form>
+</body>
+</html>

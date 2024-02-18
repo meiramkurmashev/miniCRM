@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Редактировать";
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+    <form method="post" action="EditComplete">
+        <h3>Редактирование задачи</h3>
+
+
+        <br />
+
+        <table border="1" style="">
+            <thead color="red">
+                <tr>
+
+
+                    <td>ФИО</td>
+                    <td>Должность</td>
+                 
+                  
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                <tr style="text-decoration: none; color:black">
+                    <input required hidden name="id" value="@ViewBag.Id" />
+                    <td><input required name="fio" value="@ViewBag.Fio" /></td>
+                    <td><input required name="work" value="@ViewBag.Work" /></td>
+                   
+
+                </tr>
+
+
+
+
+            </tbody>
+        </table>
+        <br />
+
+        <button type="submit" value="">Редактировать</button>
+        <button type="button" onclick="javascript:history.go(-1);">Назад</button>
+    </form>
+</body>
+</html>

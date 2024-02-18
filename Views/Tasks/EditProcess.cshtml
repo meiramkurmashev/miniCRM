@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Редактировать";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+    <h3>Выберите задачу</h3>
+
+
+    <br />
+   
+    <table border="1" style="">
+        <thead color="red">
+            <tr>
+
+
+                <td>Наименование</td>
+                <td>Дата старта</td>
+                <td>Дата завершения</td>
+                <td>Процент выполнения</td>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @*      <a href="Workers/Index?id=@list.Id&fio=@list.Fio&work=@list.Work"> *@
+
+            @foreach (var list in ViewBag.listTasks)
+            {
+                <tr style="text-decoration: none; color:black">
+                    <td hidden>@list.Id</td>
+
+                    <td><a href="Edit?id=@list.Id&name=@list.Name&start=@list.Date_Start&end=@list.Date_End&ready=@list.Ready">@list.Name</a></td>
+                    <td>@list.Date_Start</td>
+                    <td>@list.Date_End</td>
+                    <td>@list.Ready%</td>
+
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+    @* <button type="submit" value="" onclick="location.href='/Home'">Назад</button> *@
+</body>
+</html>
